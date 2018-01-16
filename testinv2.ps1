@@ -15,7 +15,7 @@ Add-PSSnapin "VMware.VimAutomation.Core" | Out-Null
 Connect-VIServer -Server $iniContent.vcenter_host -Protocol https -User $iniContent.vcenter_user -Password $iniContent.vcenter_password
 $Datastores = "Datastore*"
 $VMXFile = "*.vmx"
-$ESXHost = "10.10.10.8"
+$ESXHost =  Get-Cluster $Cluster | Get-VMHost | select -First 1
 foreach($Datastore in Get-Datastore $Datastores) {
    # Set up Search for .VMX Files in Datastore
    $ds = Get-Datastore -Name $Datastore | %{Get-View $_.Id}
