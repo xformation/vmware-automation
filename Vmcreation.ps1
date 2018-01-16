@@ -1,8 +1,16 @@
 <#	
+	.NOTES
+	===========================================================================
+	 Created on:   	13/01/2018 01:02 PM
+	 Created by:   	Mohammed Zubair Bhojani
+	 Organization:  Synectiks
+	 Filename:Vmcreation.ps1    	
+	===========================================================================
 	.DESCRIPTION
 		A description of the file.
 	It will take the VM's information from CSV file and will provision the VM's 
 #>
+#Just take input as full path of the CSV file
 PARAM (
 	[Parameter(Mandatory = $true, HelpMessage = "You must specify the full path of the INI file")]
 	[ValidateScript({ Test-Path -Path $_ })]
